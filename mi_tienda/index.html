@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda de Ropa y Celulares - Mi Proyecto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .contenedor {
+            width: 80%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        .seccion {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 15px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .productos {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .producto-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 30%;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>🛍️ Tienda Multimarcas - Proyecto Escolar</h1>
+
+        <!-- SECCIÓN 1: MUESTRA DE PRODUCTOS Y MARCAS -->
+        <div class="seccion">
+            <h2>Nuestros Productos Disponibles</h2>
+            <div class="productos">
+                <div class="producto-card">
+                    <h3>Nike</h3>
+                    <p>Tenis Deportivos</p>
+                    <p><strong>$1,200 MXN</strong></p>
+                </div>
+                <div class="producto-card">
+                    <h3>Samsung</h3>
+                    <p>Celular Galaxy A54</p>
+                    <p><strong>$5,500 MXN</strong></p>
+                </div>
+                <div class="producto-card">
+                    <h3>L'Oréal</h3>
+                    <p>Crema Facial Hidratante</p>
+                    <p><strong>$250 MXN</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: FORMULARIO DE REGISTRO E INICIO DE SESIÓN -->
+        <div class="seccion">
+            <h2>1. Registro e Iniciar Sesión</h2>
+            <!-- El 'action' enviará los datos al archivo backend (por ejemplo: registrar.php o server.js) -->
+            <form action="registrar.php" method="POST">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" placeholder="Crea tu contraseña" required>
+
+                <button type="submit">Crear Cuenta e Iniciar Sesión</button>
+            </form>
+        </div>
+
+        <!-- SECCIÓN 3: FORMULARIO DE VENTA / COMPRA -->
+        <div class="seccion">
+            <h2>2. Formulario de Venta (Realizar Pedido)</h2>
+            <!-- Este formulario enviará la compra a la base de datos SQL mediante un script del servidor -->
+            <form action="comprar.php" method="POST">
+                
+                <label for="marca">Selecciona la Marca / Categoría:</label>
+                <select id="marca" name="marca" required>
+                    <option value="">-- Selecciona una opción --</option>
+                    <option value="Nike - Tenis">Nike (Calzado)</option>
+                    <option value="Adidas - Playera">Adidas (Ropa)</option>
+                    <option value="Samsung - Celular">Samsung (Celulares)</option>
+                    <option value="LOreal - Cosméticos">L'Oréal (Cosméticos)</option>
+                </select>
+
+                <label for="cantidad">Cantidad de productos:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" value="1" required>
+
+                <label for="direccion">Dirección de Envío:</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Calle, Número, Colonia" required>
+
+                <label for="pago">Método de Pago:</label>
+                <select id="pago" name="pago" required>
+                    <option value="Tarjeta">Tarjeta de Débito / Crédito</option>
+                    <option value="Efectivo">Pago en OXXO / Efectivo</option>
+                </select>
+
+                <button type="submit" style="background-color: #28a745;">Confirmar y Enviar Pedido (SQL)</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
